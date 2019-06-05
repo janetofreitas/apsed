@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+
+//QUestão 2 A
+#define liminf 8
+#define limdir 8
+
+//Questão 1 B
+int Menu(){
+            int opcao;
+            system("cls");
+            printf(" -- Menu -- \n");
+            printf(" (1) Visualizar sala \n");
+            printf(" (2) Posicionar robo \n");
+            printf(" (3) Mover para cima \n");
+            printf(" (4) Mover para direita \n");
+            printf(" (5) Mover para baixo \n");
+            printf(" (6) Mover para esquerda \n");
+            printf(" (7) Mostrar caminho \n");
+            printf(" (9) Sair \n\n");
+
+            printf(" Opcao : ");
+            scanf("%d", &opcao); 
+            return opcao;
+
+}
+
+//Questão 2 B
+struct sala{
+    int tamsala [liminf][limdir];
+    TROBO robo = {4, 6};//Questão 3 B
+}typedef TSALA;
+
+void inicializarSala(TSALA* sala){
+    for(int i=0;i<liminf;i++){
+        for(int j=0;j<limdir;j++){
+            sala->tamsala[i][j] = 0;
+        }
+    }
+}
+//Questão 2 C
+void visualizarSala(TSALA* sala){
+
+    for(int i=0;i<liminf;i++)
+    {
+           for(int j=0;j<limdir;j++)
+           {
+               printf("%i\t", sala->tamsala[i][j]); // mudança
+           }
+           printf("\n");
+    }
+}
+
+TROBO lerPosicao(TROBO robo){
+    TROBO robo;
+    return *robo;
+
+
+main()
+{
+      int opcao;
+      while (opcao != 9)
+      {
+            opcao = Menu();
+            TSALA* sala = (TSALA*) malloc(sizeof(TSALA));
+            inicializarSala(sala);
+            switch(opcao)
+            {
+                case 1: 
+                     {
+                        printf(" Visualizar Sala : \n"); 
+
+                        //Questão 2 C
+                        visualizarSala(sala);
+                     }break;
+                default:
+                     {
+                        printf(" Funcao a implementar.");
+                     }break;
+            }
+            printf("\n\n");
+            system("pause");
+      }
+}
